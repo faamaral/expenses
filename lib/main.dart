@@ -15,8 +15,7 @@ class Expenses extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+  //const MyHomePage({Key? key}) : super(key: key);
   final _transaction = [
     Transaction(id: 'T1', title: 'Novo tenis', value: 2500.39, date: DateTime.now()),
     Transaction(id: 'T2', title: 'Nova camiseta', value: 2500.39, date: DateTime.now()),
@@ -39,8 +38,10 @@ class MyHomePage extends StatelessWidget {
                 elevation: 5,
               ),
             ),
-            Card(
-              child: Text('Lista de transações'),
+            Column(
+              children: _transaction.map((tr) => Card(
+                child: Text(tr.title),
+              )).toList(),
             )
           ]),
     );
