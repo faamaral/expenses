@@ -17,8 +17,10 @@ class Expenses extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   //const MyHomePage({Key? key}) : super(key: key);
   final _transaction = [
-    Transaction(id: 'T1', title: 'Novo tenis', value: 2500.39, date: DateTime.now()),
-    Transaction(id: 'T2', title: 'Nova camiseta', value: 2500.39, date: DateTime.now()),
+    Transaction(
+        id: 'T1', title: 'Novo tenis', value: 2500.39, date: DateTime.now()),
+    Transaction(
+        id: 'T2', title: 'Nova camiseta', value: 2500.39, date: DateTime.now()),
   ];
 
   @override
@@ -39,51 +41,44 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Column(
-              children: _transaction.map((tr) => Card(
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 10
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.purple,
-                          width: 2
-                        )
-                      ),
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        tr.value.toString(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.purple
+              children: _transaction
+                  .map((tr) => Card(
+                        child: Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 15, vertical: 10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.purple, width: 2)),
+                              padding: EdgeInsets.all(10),
+                              child: Text(
+                                'R\$ ${tr.value.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Colors.purple),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tr.title,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                Text(
+                                  tr.date.toString(),
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ],
+                            )
+                          ],
                         ),
-                        ),
-                    ),
-                    Column(                
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          tr.title,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16
-                          ),
-                          ),
-                        Text(
-                          tr.date.toString(),
-                          style: TextStyle(
-                            color: Colors.grey
-                          ),
-                          ),
-                      ],
-                    )
-                  ],
-                ),
-              )).toList(),
+                      ))
+                  .toList(),
             )
           ]),
     );
