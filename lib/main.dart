@@ -63,8 +63,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                         ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    Column(                
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
