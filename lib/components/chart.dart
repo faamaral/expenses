@@ -25,7 +25,10 @@ class Chart extends StatelessWidget {
         }
       }
       return {'day': DateFormat.E().format(weekDay)[0], 'value': totalSum};
-    });
+      /*
+       * O metodo reversed é usado para inverter a ordem dos elementos da lista 
+       */
+    }).reversed.toList();
   }
 
   double get _weekTotalValue {
