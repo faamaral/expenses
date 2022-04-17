@@ -57,12 +57,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: 'Nova camiseta',
         value: 2500.39,
         date: DateTime.now().subtract(Duration(days: 4))),
+    Transaction(
+        id: 'T3', title: 'Boletos', value: 250.39, date: DateTime.now()),
+    Transaction(
+        id: 'T4', title: 'Fatura', value: 20000.45, date: DateTime.now()),
   ];
 
   List<Transaction> get _recentTransactions {
-    return _transactions.where((tr) => tr.date.isAfter(DateTime.now().subtract(
-      Duration(days: 7),
-    ))).toList();
+    return _transactions
+        .where((tr) => tr.date.isAfter(DateTime.now().subtract(
+              Duration(days: 7),
+            )))
+        .toList();
   }
 
   _addTransaction(String title, double value) {
